@@ -1,5 +1,3 @@
-
-
 resource "aws_subnet" "public" {
   count                   = 2
   vpc_id                  = data.aws_vpc.default_vpc.id
