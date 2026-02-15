@@ -46,3 +46,11 @@ terraform show
 terraform refresh
 terraform output
 ```
+
+
+References:
+- https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html
+- https://medium.com/@neamulkabiremon/build-a-production-grade-aws-ecs-fargate-cluster-with-terraform-modular-scalable-ci-cd-ready-07b0c5d40e6f
+- https://alexhladun.medium.com/create-a-vpc-endpoint-for-ecr-with-terraform-and-save-nat-gateway-1bc254c1f42
+- https://medium.com/@olayinkasamuel44/using-terraform-and-fargate-to-create-amazons-ecs-e3308c1b9166
+- https://dev.to/aws-builders/deploying-a-simple-app-on-ecs-with-fargate-terraform-using-community-modules-e0b
