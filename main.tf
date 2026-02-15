@@ -14,6 +14,8 @@ terraform {
   }
 }
 
+data "aws_region" "current" {}
+
 data "aws_iam_role" "task_ecs" {
   name = "ecsTaskExecutionRole"
 }
@@ -25,3 +27,11 @@ data "aws_vpc" "default_vpc" {
 data "aws_availability_zones" "available" {
 }
 
+data "aws_route_table" "default_vpc_rt" {
+  vpc_id = data.aws_vpc.default_vpc.id
+
+  filter {
+    name   = "association.main"
+    values = ["true"]
+  }
+}
