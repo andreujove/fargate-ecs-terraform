@@ -4,9 +4,9 @@ This repository contains Terraform configurations for deploying a containerized 
 
 ## 📋 Prerequisites
 
-- [AWS CLI](https://aws.amazon.com/cli/) installed and configured
-- [Docker](https://www.docker.com/) installed
-- [Terraform](https://www.terraform.io/downloads) installed (v1.0+)
+- [AWS CLI](https://aws.amazon.com/cli/) installed and configured (aws-cli/2.4.18)
+- [Docker](https://www.docker.com/) installed (Docker version 28.1.1, build 4eba377)
+- [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) installed (v1.14.5)
 - An AWS account with appropriate permissions
 
 ## 🚀 Getting Started
@@ -21,7 +21,18 @@ export AWS_PROFILE=tp-exam
 aws sts get-caller-identity --profile tp-exam
 ```
 
-### 2. Login & push to ECR:
+### 2. Start Terraform:
+```bash
+terraform init
+```
+
+### 3. Create ECR:
+```bash
+terraform plan -target=aws_ecr_repository.ecr_repository -var-file="envs/dev.tfvars"
+terraform apply -target=aws_ecr_repository.ecr_repository -var-file="envs/dev.tfvars"
+```
+
+### 4. Login & push the image to ECR:
 ```bash
 aws ecr get-login-password --region eu-west-2 --profile tp-exam | docker login --username AWS 
 --password-stdin ************.dkr.ecr.eu-west-2.amazonaws.com
@@ -30,7 +41,12 @@ docker tag flask-hello:1.0.0 ************.dkr.ecr.eu-west-2.amazonaws.com/tp-fla
 docker push ************.dkr.ecr.eu-west-2.amazonaws.com/tp-flask-app:1.0.0
 ```
 
-### 3. Working with the repository:
+### 5. Apply all other resources:
+```bash
+terraform apply -var-file="envs/dev.tfvars"
+```
+
+#### Working with the repository:
 ```bash
 terraform init
 terraform plan -var-file="envs/dev.tfvars"
