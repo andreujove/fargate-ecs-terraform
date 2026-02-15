@@ -13,11 +13,6 @@ variable "environment" {
   }
 }
 
-variable "repository_name" {
-  type        = string
-  description = "The name of the ECR repository where Docker images are stored."
-}
-
 variable "image_mutability" {
   type        = string
   default     = "MUTABLE"
