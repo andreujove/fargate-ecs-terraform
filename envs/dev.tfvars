@@ -3,7 +3,6 @@ environment      = "dev"
 name_prefix      = "tp-flask-app"
 
 # ECR Specifics
-repository_name  = "tp-flask-app-ecr"
 image_mutability = "MUTABLE"   # Allows you to push 'latest' or 'dev' tags repeatedly
 
 aws_profile = "tp-exam"
