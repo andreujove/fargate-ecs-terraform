@@ -1,5 +1,3 @@
-# fargate-ecs-terraform
-
 # Fargate ECS with Terraform
 
 This repository contains Terraform configurations for deploying a containerized Flask application on AWS ECS Fargate.
