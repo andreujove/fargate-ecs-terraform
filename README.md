@@ -34,11 +34,12 @@ terraform apply -target=aws_ecr_repository.ecr_repository -var-file="envs/dev.tf
 
 ### 4. Login & push the image to ECR:
 ```bash
+export AWS_ACCOUNT_ID=***********
 aws ecr get-login-password --region eu-west-2 --profile tp-exam | docker login --username AWS 
---password-stdin ************.dkr.ecr.eu-west-2.amazonaws.com
+--password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com
 docker images
-docker tag flask-hello:1.0.0 ************.dkr.ecr.eu-west-2.amazonaws.com/tp-flask-app:1.0.0
-docker push ************.dkr.ecr.eu-west-2.amazonaws.com/tp-flask-app:1.0.0
+docker tag flask-hello:1.0.0 ${AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/tp-flask-app:1.0.0
+docker push ${AWS_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/tp-flask-app:1.0.0
 ```
 
 ### 5. Apply all other resources:
