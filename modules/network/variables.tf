@@ -12,3 +12,8 @@ variable "vpc_cidr_block" {
   description = "The CIDR block of the VPC (used for cidrsubnet calculations)"
   type        = string
 }
+
+variable "default_vpc_rt_id" {
+  description = "The ID of the route table of the VPC"
+  type        = string
+}
