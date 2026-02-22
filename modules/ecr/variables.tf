@@ -23,13 +23,3 @@ variable "image_mutability" {
     error_message = "The image_mutability must be either 'MUTABLE' or 'IMMUTABLE'."
   }
 }
-
-variable "app_port" {
-  type        = number
-  default     = 5000
-  description = "The internal port the container listens on (e.g., 5000 for Flask)."
-}
-
-variable "aws_profile" {
-  type = string
-}
