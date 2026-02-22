@@ -48,3 +48,9 @@ data "aws_route_table" "default_vpc_rt" {
     values = ["true"]
   }
 }
+
+module "web_server" {
+  source = "./modules/networking"
+
+  name_prefix = var.name_prefix
+}
