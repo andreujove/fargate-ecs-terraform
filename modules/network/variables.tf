@@ -17,3 +17,7 @@ variable "default_vpc_rt_id" {
   description = "The ID of the route table of the VPC"
   type        = string
 }
+
+variable "aws_region" {
+  type = string
+}
